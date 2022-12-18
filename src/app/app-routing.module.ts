@@ -19,13 +19,15 @@ const routes: Routes = [
     path: 'signup', component: SignupComponent
   },
   {
-    path: 'dashboard', component: DashboardComponent
-  },
-  {
-    path: 'facebook-page', component: FacebookPageComponent
-  },
-  {
-    path: 'line-page', component: LinePageComponent
+    path: 'dashboard', component: DashboardComponent,
+    children:[
+      {
+        path: 'facebook-page', component: FacebookPageComponent
+      },
+      {
+        path: 'line-page', component: LinePageComponent
+      }
+    ]
   }
 ];
 

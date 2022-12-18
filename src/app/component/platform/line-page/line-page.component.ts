@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import liff from '@line/liff';
+import {Router, RouterModule} from "@angular/router";
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-line-page',
   templateUrl: './line-page.component.html',
   styleUrls: ['./line-page.component.css']
 })
@@ -16,6 +17,11 @@ export class LinePageComponent implements OnInit {
   ngOnInit(): void {
     this.initLine();
   }
+
+  constructor(private _route: Router) {
+
+  }
+
 
   initLine(): void {
     liff.init({ liffId: '1657446172-jyvLlv6V' }, () => {
@@ -39,6 +45,7 @@ export class LinePageComponent implements OnInit {
   }
 
   logout(): void {
+    this._route.navigate(["/login]"]);
     liff.logout();
     window.location.reload();
   }
